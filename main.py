@@ -11,6 +11,7 @@ import spidev
 import time
 import os
 import sys
+#import string
 
 # defining the size of the ereader
 EPD_WIDTH = 640
@@ -28,6 +29,11 @@ SPI = spidev.SpiDev(0,0)
 EPD_WIDTH = 640
 EPD_HEIGHT = 384
 
+def next_page(d, file):
+    x = len(file);
+    newfile = file[0:x-5]+'2.bmp'
+    return newfile
+
 def main():
     epd = epd7in5.EPD()
     epd.init()
@@ -43,9 +49,24 @@ def main():
     draw.arc((40, 80, 180, 220), 0, 360, fill = 0)
     epd.display_frame(epd.get_frame_buffer(image))
     
-    #epd.display_frame(imagedata.MONOCOLOR_BITMAP)
-    im = Image.open('city.bmp')
+    file = 'Career Fair 1-1.bmp'
+    im = Image.open(file)
     epd.display_frame(epd.get_frame_buffer(im))
+    userInput = 'nothing'
+    d = 1;        
+    test = True
+    while test:
+        userInput = input('Next? YES or NO ')
+        userInput.upper();
+        type(userInput)
+        if userInput != '':
+            test = False
+            
+    if userInput == 'YES' or userInput == 'Y':
+         file = next_page(d,file)
+         d = d+1
+         im = Image.open(file)
+         epd.display_frame(epd.get_frame_buffer(im))
     #im.rotate(45).show()
 
 if __name__ == '__main__':
