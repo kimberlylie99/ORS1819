@@ -37,7 +37,7 @@ def next_page(d, file):
 def main():
     epd = epd7in5.EPD()
     epd.init()
-    
+
     image = Image.new('1',(EPD_WIDTH,EPD_HEIGHT),1)
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf', 24)
@@ -48,12 +48,20 @@ def main():
     draw.rectangle((0, 80, 160, 280), fill = 255)
     draw.arc((40, 80, 180, 220), 0, 360, fill = 0)
     epd.display_frame(epd.get_frame_buffer(image))
-    
+
+    ##implementing dictionary##
+    ## idea: whenever user drops a file, automatically add file into diction and update for user
+    fileDict = {
+        "File" : "Career Fair",
+        "Page" : "1",
+        "Part" : "1"
+    }
+
     file = 'Career Fair 1-1.bmp'
     im = Image.open(file)
     epd.display_frame(epd.get_frame_buffer(im))
     userInput = 'nothing'
-    d = 1;        
+    d = 1;
     test = True
     while test:
         userInput = input('Next? YES or NO ')
@@ -61,7 +69,7 @@ def main():
         type(userInput)
         if userInput != '':
             test = False
-            
+
     if userInput == 'YES' or userInput == 'Y':
          file = next_page(d,file)
          d = d+1
