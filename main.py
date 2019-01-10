@@ -7,7 +7,7 @@ import epd7in5
 #import bcm2835
 import epdif
 import RPi.GPIO as GPIO
-import spidev
+import spidev 
 import time
 import os
 import sys
@@ -21,7 +21,7 @@ EPD_HEIGHT = 384
 CS_PIN = 8
 RST_PIN = 17
 BUSY_PIN = 24
-DC_PIN = 25
+DC_PIN = 25                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 # SPI device, bus = 0, device = 0
 SPI = spidev.SpiDev(0,0)
@@ -51,12 +51,10 @@ def main():
 
     ##implementing dictionary##
     ## idea: whenever user drops a file, automatically add file into diction and update for user
-    fileDict = {
-        "File" : "Career Fair",
-        "Page" : "1",
-        "Part" : "1"
-    }
-
+    
+    name = input('Enter File Name: ')
+    pages = input('Enter Number of Pages: ')
+    
     file = 'Career Fair 1-1.bmp'
     im = Image.open(file)
     epd.display_frame(epd.get_frame_buffer(im))
