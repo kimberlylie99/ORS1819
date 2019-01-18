@@ -7,7 +7,7 @@ import epd7in5
 #import bcm2835
 import epdif
 import RPi.GPIO as GPIO
-import spidev 
+import spidev
 import time
 import os
 import sys
@@ -21,7 +21,7 @@ EPD_HEIGHT = 384
 CS_PIN = 8
 RST_PIN = 17
 BUSY_PIN = 24
-DC_PIN = 25                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+DC_PIN = 25
 
 # SPI device, bus = 0, device = 0
 SPI = spidev.SpiDev(0,0)
@@ -51,28 +51,28 @@ def main():
 
     ##implementing dictionary##
     ## idea: whenever user drops a file, automatically add file into diction and update for user
-    
-    name = input('Enter File Name: ')
-    pages = input('Enter Number of Pages: ')
-    
-    file = 'Career Fair 1-1.bmp'
-    im = Image.open(file)
-    epd.display_frame(epd.get_frame_buffer(im))
-    userInput = 'nothing'
-    d = 1;
-    test = True
-    while test:
-        userInput = input('Next? YES or NO ')
-        userInput.upper();
-        type(userInput)
-        if userInput != '':
-            test = False
 
-    if userInput == 'YES' or userInput == 'Y':
-         file = next_page(d,file)
-         d = d+1
-         im = Image.open(file)
-         epd.display_frame(epd.get_frame_buffer(im))
+    #name = input('Enter File Name: ')
+    #pages = input('Enter Number of Pages: ')
+
+    #file = 'Career Fair 1-1.bmp'
+    #im = Image.open(file)
+    #epd.display_frame(epd.get_frame_buffer(im))
+    #userInput = 'nothing'
+    #d = 1;
+    #test = True
+    #while test:
+    #    userInput = input('Next? YES or NO ')
+    #    userInput.upper();
+    #    type(userInput)
+    #    if userInput != '':
+    #        test = False
+
+    #if userInput == 'YES' or userInput == 'Y':
+    #     file = next_page(d,file)
+    #     d = d+1
+    #     im = Image.open(file)
+    #     epd.display_frame(epd.get_frame_buffer(im))
     #im.rotate(45).show()
 
 if __name__ == '__main__':
