@@ -56,9 +56,9 @@ def main():
     #name = input('Enter File Name: ')
     #pages = input('Enter Number of Pages: ')
 
-    #file = 'Career Fair 1-1.bmp'
-    #im = Image.open(file)
-    #epd.display_frame(epd.get_frame_buffer(im))
+    file = 'GT logo.bmp'
+    im = Image.open(file)
+    epd.display_frame(epd.get_frame_buffer(im))
     #userInput = 'nothing'
     #d = 1;
     #test = True
