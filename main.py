@@ -3,8 +3,8 @@ from PIL import ImageDraw, Image, ImageFont
 #import wiringPi
 import epd7in5
 #import imagedata
-#import epdif
-#import bcm2835
+import epdif
+import bcm2835
 import epdif
 import RPi.GPIO as GPIO
 import spidev
@@ -55,9 +55,9 @@ def main():
     #name = input('Enter File Name: ')
     #pages = input('Enter Number of Pages: ')
 
-    #file = 'Career Fair 1-1.bmp'
-    #im = Image.open(file)
-    #epd.display_frame(epd.get_frame_buffer(im))
+    file = 'GT logo.bmp'
+    im = Image.open(file)
+    epd.display_frame(epd.get_frame_buffer(im))
     #userInput = 'nothing'
     #d = 1;
     #test = True
