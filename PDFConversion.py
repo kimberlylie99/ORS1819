@@ -14,9 +14,9 @@ while(index<pdfreader.getNumPages()):
     index= index+1
 file.close()
 
-for line in fileinput.FileInput("file",inplace=1):
-    if line.rstrip():
-        print line
+#for line in fileinput.FileInput("file",inplace=1):
+#    if line.rstrip():
+#        print(line)
 newfile = open("TheHelpConversion.txt","r")
 message = newfile.read()
 print(message)
