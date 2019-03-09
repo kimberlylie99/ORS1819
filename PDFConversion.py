@@ -12,4 +12,8 @@ while(index<pdfreader.getNumPages()):
     newfile.write(pageobj.extractText())
     index= index+1;
 file.close()
+
+newfile = open("TheHelpConversion.txt","r")
+message = newfile.read()
+print(message)
 newfile.close()
