@@ -56,9 +56,20 @@ def main():
     #name = input('Enter File Name: ')
     #pages = input('Enter Number of Pages: ')
 
-    file = 'GT logo.bmp'
-    im = Image.open(file)
-    epd.display_frame(epd.get_frame_buffer(im))
+    #file = 'GT logo.bmp'
+    #im = Image.open(file)
+    #epd.display_frame(epd.get_frame_buffer(im))
+
+    file = 'TheHelpConversion.txt'
+
+    test = True
+    change = 0
+    while test:
+        change = input('Press 1 to change')
+        if change = 1
+            test = False
+            im = Image.open(file)
+            epd.display_frame(epd.get_frame_buffer(im))
     #userInput = 'nothing'
     #d = 1;
     #test = True
