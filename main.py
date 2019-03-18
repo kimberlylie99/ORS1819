@@ -60,25 +60,26 @@ def main():
     #im = Image.open(file)
     #epd.display_frame(epd.get_frame_buffer(im))
 
-    file = 'TheHelpConversion.txt'
+    #file = 'TheHelpConversion.txt'
 
-    test = True
-    change = 0
-    while test:
-        change = input('Press 1 to change')
-        if change = 1
-            test = False
-            im = Image.open(file)
-            epd.display_frame(epd.get_frame_buffer(im))
-    #userInput = 'nothing'
-    #d = 1;
     #test = True
+    #change = 0
     #while test:
-    #    userInput = input('Next? YES or NO ')
-    #    userInput.upper();
-    #    type(userInput)
-    #    if userInput != '':
-    #        test = False
+        #change = input('Press 1 to change')
+        #if change = 1
+            #test = False
+            #im = Image.open(file)
+            #epd.display_frame(epd.get_frame_buffer(im))
+
+
+    string = "abcd"
+
+    image = Image.new('1', (640, 384), 255)  # 255: clear the frame
+    draw = ImageDraw.Draw(image)
+    draw.text((0, 0), string.encode('utf-8'), fill = 0)
+
+    epd.set_frame_memory(image, 0, 0)
+    epd.display_frame(epd.get_frame_buffer(image))
 
     #if userInput == 'YES' or userInput == 'Y':
     #     file = next_page(d,file)
