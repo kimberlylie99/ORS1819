@@ -71,14 +71,19 @@ def main():
             #im = Image.open(file)
             #epd.display_frame(epd.get_frame_buffer(im))
 
-
-    string = "abcd"
-
     image = Image.new('1', (640, 384), 255)  # 255: clear the frame
     draw = ImageDraw.Draw(image)
-    draw.text((0, 0), string.encode('utf-8'), fill = 0)
+    
+    newfile = open("TheHelpConversion.txt","rb")
+    j=0
+    i = 0
+    while i < 20:
+        line = newfile.readline()
 
-    epd.set_frame_memory(image, 0, 0)
+        draw.text((0, j), line, fill = 0)
+
+    #epd.set_frame_memory(image, 0, 0)
+        j=j+1
     epd.display_frame(epd.get_frame_buffer(image))
 
     #if userInput == 'YES' or userInput == 'Y':

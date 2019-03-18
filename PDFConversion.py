@@ -6,13 +6,14 @@ from tika import parser
 newfile = open("TheHelpConversion.txt","wb")
 #file = open("TheHelp.pdf","r")
 
-raw = parser.from_file("TheHelp.pdf");
+raw = parser.from_file("theHelp.pdf");
 test = raw['content']
 print(test);
 test = test.encode('utf-8')
 newfile.write(test);
 #file.close();
 newfile.close();
+
 
 #newfile = open("TheHelpConversion.txt","wb")
 #file = open("TheHelp.pdf","rb")
