@@ -73,29 +73,36 @@ def main():
 
     image = Image.new('1', (640, 384), 255)  # 255: clear the frame
     draw = ImageDraw.Draw(image)
-    
+
     newfile = open("TheHelpConversion.txt","rb")
-    j=0
+    j = 0
     i = 0 # what line to read from file
     #tfont = ImageFont.truetype("arial.ttf", 14)
     n = 1
-    
+    all_lines = newfile.readlines()
+
     while True:
         while i < 30*n:
-            line = newfile.readline()
+            line = all_lines[i]
             print(line)
             draw.text((0, j), line, fill = 0)
-
-    #epd.set_frame_memory(image, 0, 0)
-            j=j+13
+            j= j + 13
             i = i+1
         epd.display_frame(epd.get_frame_buffer(image))
         change = 0
-        while change != 1:
-            change = input("Press 1 to flip page: ")
+        while change != "1" and change != "2":
+            change = input("Press 1 to go forward or 2 to go backward: ")
             j = 0
-        n = n + 1
-        image = Image.new('1', (640, 384), 255)  # 255: clear the frame
+        if change == "1": #updated
+            n = n + 1 #updated
+        elif change == "2": #updated
+            if n != 1: #updated
+                n = n - 1 #updated
+                i = i - 60 #updated
+            else:
+                i = 0
+
+        image = Image.new('1', (640, 384), 255) # 255: clear the frame
         draw = ImageDraw.Draw(image)
 
     #if userInput == 'YES' or userInput == 'Y':
