@@ -80,22 +80,26 @@ def main():
     #tfont = ImageFont.truetype("arial.ttf", 14)
     n = 1
     all_lines = newfile.readlines()
+    numLines = len(all_lines)
 
     while True:
         while i < 30*n:
             line = all_lines[i]
             print(line)
             draw.text((0, j), line, fill = 0)
-            j= j + 13
-            i = i+1
+            j= j + 12.5
+            if i+1 <= numLines:
+                i = i+1
         epd.display_frame(epd.get_frame_buffer(image))
         change = 0
-        while change != "1" and change != "2":
+        while change != 1 and change != 2:
             change = input("Press 1 to go forward or 2 to go backward: ")
             j = 0
-        if change == "1": #updated
-            n = n + 1 #updated
-        elif change == "2": #updated
+        if change == 1: #updated
+            #print("in 1 statement")
+            if i != numLines:
+                n = n + 1
+        elif change == 2: #updated
             if n != 1: #updated
                 n = n - 1 #updated
                 i = i - 60 #updated
