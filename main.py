@@ -41,7 +41,7 @@ def main():
 
     image = Image.new('1',(EPD_WIDTH,EPD_HEIGHT),1)
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf', 24)
+    font_path = 
     draw.rectangle((0, 6, 640, 30), fill = 0)
     draw.text((200, 10), 'e-Paper demo', font = font, fill = 255)
     draw.rectangle((200, 80, 600, 280), fill = 0)
@@ -77,7 +77,7 @@ def main():
     newfile = open("TheHelpConversion.txt","rb")
     j = 0
     i = 0 # what line to read from file
-    #tfont = ImageFont.truetype("arial.ttf", 14)
+    tfont = ImageFont.truetype(font_path, 20)
     n = 1
     all_lines = newfile.readlines()
     numLines = len(all_lines)
@@ -86,7 +86,8 @@ def main():
         while i < 30*n:
             line = all_lines[i]
             print(line)
-            draw.text((0, j), line, fill = 0)
+            # change fill and font
+            draw.text((0, j), line, tfont, fill = (255,255,255,255)
             j= j + 12.5
             if i+1 <= numLines:
                 i = i+1
